@@ -1,13 +1,19 @@
+import 'package:dio/dio.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:dio_proxy/dio_proxy.dart';
 
 void main() {
-  test('adds one to input values', () {
-    final calculator = Calculator();
-    expect(calculator.addOne(2), 3);
-    expect(calculator.addOne(-7), -6);
-    expect(calculator.addOne(0), 1);
-    expect(() => calculator.addOne(null), throwsNoSuchMethodError);
+  test('dio proxy', () async {
+    Dio dio = Dio()
+      ..options.baseUrl = "https://httpbin.org/"
+      ..httpClientAdapter = HttpProxyAdapter();
+
+    Response<String> response = await dio.get('/get?a=2');
+    print(response.data);
+    expect(response.data, contains('args'));
+    response = await dio.post('/post', data: {"a": 2});
+    print(response.data);
+    expect(response.data, contains('args'));
   });
 }
