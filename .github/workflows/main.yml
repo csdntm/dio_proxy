@@ -12,7 +12,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
       - name: Publish
-        uses: sakebook/actions-flutter-pub-publisher@v1.3.0
+        uses: hjue/actions-flutter-pub-publisher      
         with:
           credential: ${{ secrets.PUB_CREDENTIAL_JSON }}
           flutter_package: false
