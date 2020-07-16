@@ -21,8 +21,8 @@ void main() async{
 
     Dio dio = Dio()
       ..options.baseUrl = "https://httpbin.org/"
-      ..httpClientAdapter = HttpProxyAdapter();
-
+      ..httpClientAdapter = HttpProxyAdapter(ipAddr: 'localhost', port: 8888);
+    
     Response<String> response = await dio.get('/get?a=2');
     print(response.data);
 
