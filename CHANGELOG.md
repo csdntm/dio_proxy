@@ -13,3 +13,7 @@
 ## [1.0.9]
 
 - 配置github workflow
+
+## [1.0.10]
+
+- 配置github workflow;fix warning
