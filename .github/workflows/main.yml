@@ -1,8 +1,8 @@
 name: Publish package
 
 on:
-  release:
-    types: [published]
+  tags:
+    - v*
 
 jobs:
   publish:
