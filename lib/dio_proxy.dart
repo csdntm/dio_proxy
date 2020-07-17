@@ -14,7 +14,7 @@ class HttpProxyAdapter extends DefaultHttpClientAdapter {
 
   HttpProxyAdapter({this.ipAddr = 'localhost', this.port = 8888}) {
     onHttpClientCreate = (client) {
-      String proxy = '$ipAddr:$port';
+      var proxy = '$ipAddr:$port';
       client.findProxy = (url) {
         return 'PROXY $proxy';
       };
